@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>Fuel Consumption Prediction with Machine Learning</title>
+
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css" />
+  <!-- font awesome style -->
+  <link rel="stylesheet" type="text/css" href="/static/css/font-awesome.min.css" />
+
+  <!-- Custom styles for this template -->
+  <link href="/static/css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="/static/css/responsive.css" rel="stylesheet" />
+
+  <style>
+    body {
+        background-image: url('/static/images/b.jpg');
+        background-size:cover; /* Adjust as needed */
+        background-position: center; 
+        min-height: 650px;
+        height: 100%
+        };
+
+  </style>
+</head>
+
+<div style="background-color: rgba(0, 0, 0, 0.603); height: 100%; font-family: 'Times New Roman', Times, serif; min-height: 650px; height: 100%;">
+  <body>
+    <header class="header_section" style="background-color: maroon;">
+      <div class="header_bottom">
+        <div class="container-fluid">
+          <nav class="navbar navbar-expand-lg custom_nav-container ">
+            <a class="navbar-brand" href="#">
+              <img src="/static/images/e.jpg" height="50px" width="50px">
+              <span style="color: white;">
+                Fuel Consumption Prediction
+              </span>
+            </a>
+
+            {% block navbar %}
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ">
+                  <li class="nav-item">
+                    <a style="color: yellow;" class="nav-link active" href="{{url_for('index')}}">INDEX<span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item">
+                    <a style="color: white;" class="nav-link" href="{{url_for('register')}}">REGISTER</a>
+                  </li>
+                  <li class="nav-item">
+                    <a style="color: white;" class="nav-link" href="{{url_for('login')}}">LOGIN</a>
+                  </li>
+                </ul>
+              </div>
+            {% endblock %}
+          </nav>
+        </div>
+      </div>
+    </header>
+    
+    {% block content %}
+      <center>
+        <div class="col-12" style="margin-top: 150px; margin-left: 260px;">
+          <section style="text-align: center;" class="slider_section">
+            <div class="detail-box">
+              <h1 style="color: white; font-family: 'Times New Roman', Times, serif;">
+                Machine Learning for Fuel Consumption Prediction<br><br>
+              </h1>
+              <p style="color: yellow; font-family: 'Times New Roman', Times, serif; font-size: 24px; text-align: center;">
+                "Fuel once burnt, never returns!"
+              </p>
+              <a style="color: white; width: 200px; font-family: 'Times New Roman', Times, serif;" href="{{url_for('register')}}">
+                New User!
+              </a>
+              <a style="color: white; width: 200px; margin-left: 20px; font-family: 'Times New Roman', Times, serif;" href="{{url_for('login')}}">
+                Login
+              </a>
+            </div>
+          </section>
+        </div>
+        
+        
+      </center>
+    {% endblock %}
+
+  {% if message %}
+    <script>
+      alert("{{ message }}")        
+    </script>
+  {% endif %}
+
+  <script src="/static/js/jquery-3.4.1.min.js"></script>
+  <script src="/static/js/bootstrap.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+  </script>
+  <script src="/static/js/custom.js"></script>
+  <!-- Google Map -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap"></script>
+  <!-- End Google Map -->
+
+
+</body>
+</div>
+
+</html>

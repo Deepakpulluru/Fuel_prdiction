@@ -1,0 +1,72 @@
+{% extends 'home.html' %}
+
+{% block navbar %}
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ">
+      <li class="nav-item">
+        <a style="color: white;" class="nav-link active" href="{{url_for('home')}}">UserHome <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a style="color: yellow;" class="nav-link" href="{{url_for('algorithm')}}"> Algorithm</a>
+      </li>
+      <li class="nav-item">
+        <a style="color: white;" class="nav-link" href="{{url_for('predict_fuel_driver')}}"> Prediction</a>
+      </li>
+      <!-- <li class="nav-item">
+        <a style="color: white;" class="nav-link" href="{{url_for('graph')}}"> Graph</a>
+      </li> -->
+      <li class="nav-item">
+        <a style="color: white;" class="nav-link" href="{{url_for('index')}}">Logout</a>
+      </li>
+    </ul>
+  </div>
+{% endblock %}
+
+
+{% block content %}
+
+  <section style="margin-top: -20px;" class="contact_section layout_padding">
+    <div class="container">
+      {% if accuracy %}
+      <center>
+        <h2 style="color: yellow;">Results for <b style="color: rgb(0, 183, 255);">{{ algorithm }}</b>:</h2>
+        <h4 style="color: white;"><strong>Mean Squared Error:</strong> {{ accuracy['Mean Squared Error'] }}</h4>
+        <h4 style="color: white;"><strong>Mean Absolute Error:</strong> {{ accuracy['Mean Absolute Error'] }}</h4>
+        <!-- <h4 style="color: white;"><strong>R^2 Score:</strong> {{ accuracy['R^2 Score'] }}</h4> -->
+    </center>
+     {% endif %}
+  
+
+
+
+      <div class="row">
+        <div style="margin-left: 300px; margin-top: 20px;" class="col-md-6">
+          <form action="{{url_for('algorithm')}}" method="post">
+
+            <div>
+              <center>
+                <select style="width: 400px; height: 50px; border-radius: 5px; padding: 10px;" class="form-select" name="algorithm" aria-label="Default select example" required>
+                    <option value="">Select Algorithm</option>
+                    <option value="RandomForestRegressor">Random Forest Regression</option>
+                    <!-- <option value="XGBoost Regressor">Logistic Regression</option> -->
+                    <option value="RidgeRegression">Ridge Regression</option>
+                    <option value="AdaBoostRegressor">Adaboost Regression</option>
+                    <option value="XGBRegressor">XGB Regression</option>
+                    <option value="SVR">Support Vector Regression</option>
+                  </select>
+              </center>
+            </div><br>
+
+            <div class="d-flex ">
+              <center>
+                <button style="margin-left: 80px; border-radius: 5px; width: 400px; font-family: 'Times New Roman', Times, serif;" type="submit">
+                  Accuracy!
+                </button>
+              </center>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

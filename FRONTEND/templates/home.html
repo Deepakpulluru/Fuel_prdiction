@@ -1,0 +1,48 @@
+{% extends 'index.html' %}
+
+{% block navbar %}
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ">
+      <li class="nav-item">
+        <a style="color: yellow;" class="nav-link active" href="{{url_for('home')}}"> UserHome<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a style="color: white;" class="nav-link" href="{{url_for('algorithm')}}"> Algorithm</a>
+      </li>
+      <li class="nav-item">
+        <a style="color: white;" class="nav-link" href="{{url_for('predict_fuel_driver')}}"> Prediction</a>
+      </li>
+      
+      <!--<li class="nav-item">
+        <a style="color: white;" class="nav-link" href="{{url_for('graph')}}"> Graph</a>
+      </li>-->
+      <li class="nav-item">
+        <a style="color: white;" class="nav-link" href="{{url_for('index')}}">Logout</a>
+      </li>
+    </ul>
+  </div>
+{% endblock %}
+
+{% block content %}
+
+  <center>
+    <section style="margin-top: 90px; padding: 30px; " class="slider_section ">
+      <div class="detail-box">
+        <h1 style="color: white; font-family: 'Times New Roman', Times, serif;">
+        Fuel Consumption Prediction and Driver Profile classification with Machine Learning
+        </h1>
+        <p style="color: white; font-family: 'Times New Roman', Times, serif; text-align: justify;">
+          The objective of this project is to develop a machine learning-based system that accurately predicts the fuel consumption and classifies driving profiles based on ECU data. Specifically, the project aims to compare the performance of existing algorithms (XGBoost, SVR, Ridge Regression) with proposed algorithms (Random Forest, Logistic Regression, Adaboost) to identify the most effective approach. The project seeks to classify driving behaviors into five categories: Sporty, Eco, Calm, Normal, and Aggressive, to provide insights into driving efficiency and fuel management. Ultimately, the goal is to enhance vehicle performance, optimize fuel consumption, and support environmentally friendly driving practices.
+          The proposed system introduces Random Forest, Logistic Regression, and Adaboost algorithms to enhance fuel consumption prediction and driving profile classification. Random Forest offers robustness and accuracy by combining multiple decision trees, improving stability and performance. Logistic Regression provides clear probabilistic classifications, making it easier to interpret results. Adaboost enhances model performance by focusing on difficult cases and correcting errors from previous models.
+          Understanding Machine Learning Algorithms: Gain knowledge of different algorithms and their applications in real-time systems.
+          Data Analysis Skills: Develop skills in analyzing and interpreting ECU data for predictive modeling.
+          Algorithm Implementation: Learn to implement and compare various machine learning models for practical use cases.
+          System Development: Acquire experience in building systems that process data and make predictions.
+          Driving Behavior Insights: Understand how driving profiles can be classified and improved based on fuel consumption data.
+
+        </p>
+      </div>
+    </section>
+  </center>
+
+{% endblock %}

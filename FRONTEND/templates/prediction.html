@@ -1,0 +1,98 @@
+{% extends 'home.html' %}
+
+{% block navbar %}
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ">
+      <li class="nav-item">
+        <a style="color: white;" class="nav-link active" href="{{url_for('home')}}">UserHome</a>
+      </li>
+      <li class="nav-item">
+        <a style="color: white;" class="nav-link" href="{{url_for('algorithm')}}"> Algorithm</a>
+      </li>
+      <li class="nav-item">
+        <a style="color: yellow;" class="nav-link" href="{{url_for('predict_fuel_driver')}}"> Prediction</a>
+      </li>
+      <!-- <li class="nav-item">
+        <a style="color: white;" class="nav-link" href="{{url_for('graph')}}"> Graph</a>
+      </li> -->
+      <li class="nav-item">
+        <a style="color: white;" class="nav-link" href="{{url_for('index')}}">Logout</a>
+      </li>
+    </ul>
+  </div>
+{% endblock %}
+
+{% block content %}
+  <section class="contact_section layout_padding">
+    <div class="container">
+      {% if prediction %}
+      <center>
+        <h2 style="color: yellow;">Prediction Results:</h2>
+        <h4 style="color: white;"><strong>Fuel Consumed:</strong> {{ prediction }} L</h4>
+        <h4 style="color: white;"><strong>Driver Profile:</strong> {{ driver_profile}}</h4>
+        <h4 style="color: white;"><strong>Suggestion:</strong> {{ suggestion }}</h4>
+      </center>
+      {% endif %}
+
+      <div class="row">
+        <div style="margin-left: 300px; margin-top: 20px;" class="col-md-6">
+          <form action="{{url_for('predict_fuel_driver')}}" method="post">
+            <div>
+              <style>
+                input[type='number']{
+                  color: black;
+                }
+              </style>
+              <center>
+                <input type="number" name="vehicle_speed_kmh" placeholder="Vehicle Speed (km/h)" required>
+                <input type="number" name="engine_speed_rpm" placeholder="Engine Speed (RPM)" required>
+                <input type="number" name="throttle_position_pct" placeholder="Throttle Position (%)" required>
+                <input type="number" name="engine_load_pct" placeholder="Engine Load (%)" required>
+                <input type="number" name="fuel_rate_lph" placeholder="Fuel Rate (L/h)" required>
+                <input type="number" name="brake_usage_pct" placeholder="Brake Usage (%)" required>
+                <input type="number" name="acceleration_mps2" placeholder="Acceleration (m/s^2)" required>
+                <input type="number" name="deceleration_mps2" placeholder="Deceleration (m/s^2)" required>
+                <input type="number" name="gear_position" placeholder="Gear Position (1-6)" required>
+                <input type="number" name="torque_nm" placeholder="Torque (Nm)" required>
+                <input type="number" name="distance_travelled_km" placeholder="Distance Travelled (km)" required>
+                <input type="number" name="road_gradient_pct" placeholder="Road Gradient (%)" required>
+                <input type="number" name="vehicle_weight_kg" placeholder="Vehicle Weight (kg)" required>
+                <input type="number" name="tire_pressure_psi" placeholder="Tire Pressure (PSI)" required>
+                <select name="traffic_conditions" required>
+                  <option value="">Select Traffic Conditions</option>
+                  <option value="0">Free</option>
+                  <option value="1">Medium</option>
+                  <option value="2">Heavy</option>
+                </select>
+                <select name="weather_conditions" required>
+                  <option value="">Select Weather Conditions</option>
+                  <option value="0">Sunny</option>
+                  <option value="1">Rainy</option>
+                  <option value="2">Snowy</option>
+                </select>
+                <select name="air_conditioning" required>
+                  <option value="">Air Conditioning</option>
+                  <option value="0">Off</option>
+                  <option value="1">On</option>
+                </select>
+                <select name="fuel_type" required>
+                  <option value="">Select Fuel Type</option>
+                  <option value="0">Petrol</option>
+                  <option value="1">Diesel</option>
+                </select>
+              </center>
+            </div>
+
+            <div class="d-flex">
+              <center>
+                <button style="margin-left: 80px; border-radius: 5px; width: 400px; font-family: 'Times New Roman', Times, serif;" type="submit">
+                  Predict!
+                </button>
+              </center>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
